@@ -29,7 +29,7 @@ const sendMessage=async(req,res)=>{
            if(newMessage) await Conversations.updateOne({participants:{ $all:[senderId,receiverId]}},{ $push:{messages:newMessage._id}})
 
             const receiverSocketId=getReceiverSocketId(receiverId);
-            console.log(receiverSocketId)
+            
             if(receiverSocketId){
                 io.to(receiverSocketId).emit('newMessage',newMessage)
             }
@@ -40,7 +40,7 @@ const sendMessage=async(req,res)=>{
     }
 
     catch(error){
-        console.log(error.message)
+        
         res.status(500).json({error:"Internal Server Error"})
     }
   
@@ -50,17 +50,17 @@ async function getMessages(req,res){
     const userId=req.user._id;
     
     const {id:userToChatWith}=req.params;
-    console.log(userToChatWith)
+    
    try{
      
     const conversations=await Conversations.findOne({
         participants:{$all:[userId,userToChatWith]}
     }).populate("messages")
-    console.log(conversations)
+    
     res.status(200).json(conversations?.messages)
    }
    catch(error){
-    console.log(error);
+    
     res.status(500).json({error:"Interanl Server Error"})
    }
 

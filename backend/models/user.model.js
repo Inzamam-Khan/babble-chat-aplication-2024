@@ -2,6 +2,9 @@ const mongoose=require('mongoose')
 const path=require('path')
 const {createHmac,randomBytes}=require("crypto");
 const { createToken } = require('../jwt/jwt');
+// const userIcon =require('../assets/userIcon.png')
+
+
 const userSchema=new mongoose.Schema({
     fullName:{
         type:String,required:true
@@ -22,6 +25,8 @@ const userSchema=new mongoose.Schema({
     },
     profilePic:{
         type:String,default:"https://api.dicebear.com/8.x/avataaars/svg"
+        
+        // path.join(path.resolve(),"/backend/assets/userIcon.png")
     }
 },{timestamps:true})
 
