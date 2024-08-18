@@ -1,8 +1,26 @@
 import { combineReducers } from "redux";
 
+// get all messages with the selected conversation/user
+function Messages(state=[],action){
+    const {type,payload}=action;
+    
+    switch(type){
+        case "SET_MESSAGES":{
+            return state=payload;
+        }
+        case "ADD_MESSAGE":{
 
+            return [...state,payload]
+        
+        }
+        default:{
+            return state;
+        }
+    }
 
+}
 
+// selected conversation;
 function selectedConverastion(state=null,action){
     const {type,payload}=action;
     switch(type){
@@ -20,10 +38,7 @@ function selectedConverastion(state=null,action){
 
 }
 
-
-
-
-
+// get all users for sidebar
 function allUsers(state=[],action){
     const {type,payload}=action
 
@@ -42,7 +57,7 @@ function allUsers(state=[],action){
 
 const allReducers=combineReducers({
     allUsers,
-    selectedConverastion
+    selectedConverastion,Messages
 
 })
 

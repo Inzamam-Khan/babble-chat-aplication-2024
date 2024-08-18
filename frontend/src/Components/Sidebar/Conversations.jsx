@@ -6,18 +6,23 @@ import { useGetUsers } from "../../Hooks/useGetUsers"
 
 
 
-export const Conversations =()=>{
+export const Conversations =({searchValue})=>{
     
 
-    const user=useSelector(state=>state.allUsers)
+    const user=useSelector(state=>state.allUsers).filter((item)=>(
+        searchValue?
+        item.fullName.includes(searchValue) : item))
+    
+    
     const {getAllUsers}=useGetUsers()
+    
     
      useEffect(()=>{
       getAllUsers()
       
     },[])
     return(
-        <div className=" flex flex-col overflow-auto pr-4 ">
+        <div className=" flex flex-col overflow-auto pr-4  mb-1">
 
 
             {user?.map((item,currentIndex)=> 

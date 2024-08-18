@@ -3,13 +3,22 @@ import { Messages } from "./Messages"
 import { TiMessages } from "react-icons/ti";
 import userIcon from '../../../public/userIcon.png'
 import { useAuthContext } from "../../Contexts/auth.context";
-import { useSelector } from "react-redux";
+import {  useSelector,useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { setMessages } from "../../Store/actions";
 
 export const MessageContainer=()=>{
     
     const selectedConversation=useSelector(state=>state.selectedConverastion)
     const {authUser}=useAuthContext()
+    const dispatch= useDispatch()
+    
+    
+    // useEffect(()=>{
 
+    //     return ()=>dispatch(setMessages(null))
+
+    // },[selectedConversation])
     
 
 

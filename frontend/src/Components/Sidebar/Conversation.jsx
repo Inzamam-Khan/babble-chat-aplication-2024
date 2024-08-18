@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setSelectedConversation } from "../../Store/actions"
+import { useSocketContext } from "../../Contexts/SocketContext"
 
 
 export const Conversation=({users,lastIndex})=>{
@@ -9,6 +10,10 @@ export const Conversation=({users,lastIndex})=>{
     const selectedConversation=useSelector(state=>state.selectedConverastion)
     
     const isSelected=selectedConversation?._id === users?._id;
+
+    const {onlineUsers}=useSocketContext()
+    const isOnline=onlineUsers.includes(users._id)
+
 
 
     useEffect(()=>{
@@ -22,7 +27,7 @@ export const Conversation=({users,lastIndex})=>{
 
         <div onClick={()=>dispatch(setSelectedConversation(users))} className={`flex gap-2 items-center hover:bg-sky-500  p-2 py-1 cursor-pointer  rounded-full  hover:bg-gradient-to-r from-green-400 to-blue-500 ${isSelected? "bg-sky-600":""}`}>
             {/* avatar */}
-            <div className="avatar online">
+            <div className={`avatar ${isOnline? `online`: ``}`}>
             
                 <div className="w-12 rounded-full">
                     <img src={profilePic} alt="" />

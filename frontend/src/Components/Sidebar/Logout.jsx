@@ -9,7 +9,7 @@ export const Logout=()=>{
 
     const {logout} =useLogout()
     return(
-        <div className="mt-auto">
+        <div className="mt-auto ">
             <BiLogOut className=" hover:text-red-600 cursor-pointer w-6 h-6"  onClick={logout} />
         </div>
     )
