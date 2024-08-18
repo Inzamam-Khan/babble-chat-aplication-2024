@@ -1,6 +1,6 @@
 import { MessageContainer } from "../../Components/MessageContainer/MessageContainer"
 import { Sidebar } from "../../Components/Sidebar/Sidebar"
-import { Startup } from "../../Components/StartupSound/startup"
+
 
 export  const Home=()=>{
     return(
@@ -10,7 +10,7 @@ export  const Home=()=>{
 
  <MessageContainer/> 
 
-<Startup/>
+
  </div>
     )
 }

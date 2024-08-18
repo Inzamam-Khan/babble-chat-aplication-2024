@@ -31,12 +31,13 @@ server.listen(PORT,()=>{
 // const __dirname=path.resolve()
 
 
-
+app.use(express.static(path.join(path.resolve(),"/backend/assets/userIcon.png")))
 app.use(express.static(path.join(__dirname,'/frontend/dist')))
-
-app.get("*",(req,res)=>{
-    res.sendFile(path.join(__dirname,"/frontend","dist","index.html"))
-})
+// app.use(express.static())
+// console.log(path.join(__dirname,"/frontend","dist","index.html"))
+// app.get("*",(req,res)=>{
+//     res.sendFile(path.join(__dirname,"/frontend","dist","index.html"))
+// })
 
 app.use('/api/auth',authRouter);
 

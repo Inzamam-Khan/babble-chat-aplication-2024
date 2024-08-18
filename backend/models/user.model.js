@@ -26,7 +26,8 @@ const userSchema=new mongoose.Schema({
     profilePic:{
         type:String,default:"https://api.dicebear.com/8.x/avataaars/svg"
         
-        // path.join(path.resolve(),"/backend/assets/userIcon.png")
+        // "path.join(path.resolve(),"/backend/assets/userIcon.png")"
+        
     }
 },{timestamps:true})
 

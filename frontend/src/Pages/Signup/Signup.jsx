@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { GenderCheckBox } from "./GenderCheckBox"
 import { useState } from "react"
 import { useSignup } from "../../Hooks/useSignup"
-import { Startup } from "../../Components/StartupSound/startup"
+
 
 
 
@@ -78,7 +78,7 @@ const handleSubmit=async(e)=>{
                 </div>
 
             </form>
-       <Startup/>
+       
     
             
         </div>

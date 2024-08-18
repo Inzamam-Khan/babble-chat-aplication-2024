@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import store from './Store/store.js'
 import { AuthContextProvider } from './Contexts/auth.context.jsx'
-import { Startup } from './Components/StartupSound/startup.jsx'
+
 import { SocketContextProvider } from './Contexts/SocketContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   
     
     <BrowserRouter>
-    <Startup/>
+    
     <Provider store={store}>
     <AuthContextProvider>
         <SocketContextProvider>

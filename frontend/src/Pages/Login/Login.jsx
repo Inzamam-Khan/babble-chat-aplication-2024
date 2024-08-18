@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useLogin } from "../../Hooks/useLogin"
-import {Startup} from '../../Components/StartupSound/startup'
+
 export  const Login=()=>{
 
 
@@ -63,7 +63,7 @@ export  const Login=()=>{
 
 
             </form>
-        <Startup/>
+        
         </div>
         </div>
     )
